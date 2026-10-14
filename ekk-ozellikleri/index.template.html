@@ -143,6 +143,68 @@ canvas.dartboard{background:#fff;border:1px solid var(--border);border-radius:12
 kbd{background:#eef1f6;border:1px solid var(--border);border-bottom-width:2px;border-radius:5px;padding:.05rem .35rem;font-family:var(--mono);font-size:.82em}
 ul.clean{margin:.6rem 0;padding-left:1.2rem}
 ul.clean li{margin:.3rem 0}
+
+/* Adım adım kalıp (6. bölüm, OHK): pano + adım çubuğu. Renkler: Varyans mavi, Sapma turuncu, Sapma² mor, OHK lacivert */
+.ad-kutu{border:1px solid var(--border);border-radius:12px;padding:.9rem 1rem;margin:1rem 0;background:#fff}
+.ad-pano{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.5rem;margin:0 0 .7rem}
+.ad-hucre{border:2px dashed #cfd8e3;border-radius:10px;padding:.35rem .4rem;text-align:center;background:#fafbfc;transition:all .4s;min-width:0}
+.ad-hucre>span{display:block;font-size:12px;color:var(--muted);line-height:1.3}
+.ad-hucre b{display:block;font-size:21px;color:#b8c2cf;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.ad-hucre i{display:block;font-size:11px;color:#b8c2cf;font-style:normal}
+.ad-hucre.dolu{border-style:solid;background:#fff}
+.ad-hucre.dolu i{visibility:hidden}
+.ad-hucre.var.dolu{border-color:#378ADD} .ad-hucre.var.dolu b,.ad-var{color:#378ADD}
+.ad-hucre.sap.dolu{border-color:#EF9F27} .ad-hucre.sap.dolu b,.ad-sap{color:#d4860f}
+.ad-hucre.sap2.dolu{border-color:#7F77DD} .ad-hucre.sap2.dolu b,.ad-sap2{color:#7F77DD}
+.ad-hucre.ohk.dolu{border-color:#1E2D5E} .ad-hucre.ohk.dolu b,.ad-ohk{color:#1E2D5E}
+.ad-var,.ad-sap,.ad-sap2,.ad-ohk{font-weight:700}
+.ad-hucre.yanip{animation:adYan 1.2s ease}
+@keyframes adYan{0%{transform:scale(1.1);box-shadow:0 0 0 6px rgba(239,159,39,.35)}100%{transform:none;box-shadow:none}}
+.ad-adimlar{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.6rem}
+.ad-adimlar button{font-family:var(--sans);font-size:12.5px;padding:4px 10px;border-radius:16px;border:1px solid var(--border);background:#fff;color:var(--ink);cursor:pointer}
+.ad-adimlar button.gecti{background:#E6F7F0;border-color:#1D9E75;color:#0d5c43}
+.ad-adimlar button.active{background:#1E2D5E;color:#fff;border-color:#1E2D5E}
+.ad-icerik h5{margin:.2rem 0 .5rem;font-size:15px;color:#1E2D5E}
+.ad-icerik p{margin:.4rem 0}
+.ad-soru{background:#FFF7EA;border-left:4px solid #EF9F27;border-radius:8px;padding:.5rem .8rem;margin:.4rem 0;font-weight:600}
+.ad-yaz{background:#F3F7FB;border-radius:8px;padding:.5rem .8rem;margin-top:.5rem}
+.ad-alistirma{background:#F7F5FF;border:1px solid #d9d4f7;border-radius:8px;padding:.6rem .8rem;margin-top:.5rem}
+.ad-alistirma label{display:inline-block;margin:.2rem .9rem .2rem 0;white-space:nowrap}
+.ad-alistirma input{width:5.2em;font-size:inherit;font-family:var(--mono);padding:2px 6px;border:1px solid #b9b2ee;border-radius:6px}
+.ad-alistirma .btn-row{margin-top:.4rem}
+.ad-karar{border-radius:8px;padding:.5rem .8rem;margin-top:.5rem}
+.ad-karar.iyi{background:#E6F7F0;border:1px solid #1D9E75;color:#0d5c43}
+.ad-karar.kotu{background:#FDECEC;border:1px solid #E24B4A;color:#9b2120}
+.ad-karar.notr{background:#F3F4F6;border:1px solid #9aa3b0;color:#374151}
+.ad-karar.eski{background:#FFF7EA;border:1px solid #EF9F27;color:#7a4a05}
+.ad-kat{display:inline-block;background:#fff;border:1px solid #1D9E75;border-radius:12px;padding:0 .5em;margin:.1em .15em}
+.ad-kartlar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;margin:.6rem 0}
+.ad-kart{border:2px solid var(--border);border-radius:10px;padding:.5rem .7rem;text-align:center}
+.ad-kart .l{font-size:.78rem;color:var(--muted)}
+.ad-kart .d{font-size:1.3rem;font-weight:700;font-family:var(--mono);white-space:nowrap}
+.ad-kart .e{font-size:.8rem}
+.ad-kart.iyi{border-color:#1D9E75} .ad-kart.iyi .d,.ad-kart.iyi .e{color:#1D9E75}
+.ad-kart.kotu{border-color:#E24B4A} .ad-kart.kotu .d,.ad-kart.kotu .e{color:#E24B4A}
+.ad-gez{display:flex;justify-content:space-between;align-items:center;gap:.5rem;margin-top:.7rem}
+.ad-gez button:disabled{opacity:.4;cursor:default}
+.ad-sayac{font-size:.85rem;color:var(--muted);text-align:center}
+.ad-ipucu{font-size:.78rem;color:var(--muted);margin-top:.3rem}
+.ad-icerik .formula{margin:.5rem 0}
+#s5p_k b{font-size:17px}
+@media(max-width:700px){#s5p_k b{font-size:14px}}
+.ad-baslik{font-size:1.05rem;margin:1.4rem 0 .4rem;color:#1E2D5E}
+.ad-veri{border-collapse:collapse;width:100%;margin:.5rem 0;font-size:.88rem;font-variant-numeric:tabular-nums}
+.ad-veri th,.ad-veri td{padding:.25rem .3rem;border-bottom:1px solid var(--border);text-align:right;white-space:nowrap}
+.ad-veri th{color:var(--muted);font-weight:600}
+.ad-veri tr.top td{border-top:2px solid var(--border);font-weight:700}
+.ad-veri .yeni{background:#FFF7EA}
+@media(max-width:420px){.ad-veri{font-size:.78rem}.ad-veri th,.ad-veri td{padding:.2rem .15rem}}
+.ad-liste{margin:.5rem 0;border-top:1px solid var(--border);font-size:.92rem}
+.ad-liste.solgun,.ad-grafik.solgun{opacity:.45}
+.ad-satir{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.1rem .8rem;padding:.3rem .2rem;border-bottom:1px solid var(--border)}
+.ad-satir .s{font-family:var(--mono);white-space:nowrap;margin-left:auto}
+.ad-satir.bas{font-weight:700;border-bottom-width:2px}
+@media(max-width:700px){.ad-pano{grid-template-columns:repeat(2,minmax(0,1fr))}.ad-kutu{padding:.7rem .6rem}.ad-kart{padding:.5rem .4rem}.ad-kart .d{font-size:1.1rem}}
 </style>
 </head>
 <body>
@@ -234,7 +296,7 @@ ul.clean li{margin:.3rem 0}
       <p>İyi bir tahmin edicinin iki ayrı erdemi vardır ve bunları karıştırmamak gerekir. <b>Sapma</b> (bias) tahminlerin ortalamasının gerçek değerden ne kadar kaydığıdır. <b>Varyans</b> tahminlerin birbirinden ne kadar saçıldığıdır. Bir ok atıcısının hedef tahtası bu ayrımı bir bakışta gösterir.</p>
       <div class="sezgi"><div class="ico">🎯</div><div><b>Hedef tahtası:</b><p>Tahtanın <b>merkezi</b> gerçek <span class="katex-inline" data-tex="\beta"></span> değeridir. Her <b>ok</b> bir örnekten gelen bir tahmindir. Oklar merkezin dışında bir yere kümeleniyorsa <b>sapma</b> var; oklar geniş bir alana yayılıyorsa <b>varyans</b> yüksek demektir.</p></div></div>
       <div class="preset-grid">
-        <button class="preset active" data-bias="0" data-spread="0.35"><b>İsabetli ✓</b><small>Sapmasız + düşük varyans — ideal</small></button>
+        <button class="preset active" data-bias="0" data-spread="0.35"><b>İsabetli ✓</b><small>Sapmasız + düşük varyans: ideal</small></button>
         <button class="preset" data-bias="0" data-spread="1.1"><b>Sapmasız ama dağınık</b><small>Ortalama doğru, tek atış güvenilmez</small></button>
         <button class="preset" data-bias="1.4" data-spread="0.35"><b>Tutarlı ama kaymış</b><small>Düşük varyans, ama sistematik hata</small></button>
         <button class="preset" data-bias="1.4" data-spread="1.1"><b>Kötü</b><small>Hem kaymış hem dağınık</small></button>
@@ -316,6 +378,23 @@ ul.clean li{margin:.3rem 0}
       <div class="chart-wrap sm" id="s5_wrap"><canvas id="s5chart"></canvas></div>
       <div style="text-align:center;font-size:.8rem;color:var(--muted)">EKK eğim tahmincisinde her gözlemin ağırlığı kᵢ</div>
       <div class="info-box"><p><span class="katex-inline" data-tex="X_i"></span>'ler sabit varsayıldığından <span class="katex-inline" data-tex="k_i"></span> ağırlıkları da örnekten örneğe değişmez; bu yüzden <span class="katex-inline" data-tex="\hat{\beta}_1"></span> sadece <span class="katex-inline" data-tex="Y"></span> değerlerine bağlı doğrusal bir tahmin edicidir. Bu, birazdan gelecek Gauss-Markov teoreminin ön koşuludur.</p></div>
+      <h3 class="ad-baslik">Elle hesaplayalım</h3>
+      <p>Formülü beş gözlemlik küçük bir örnekte adım adım uygulayalım. Veri <span class="katex-inline" data-tex="Y = 5 + 2X + u"></span> sürecinden çekildi (<span class="katex-inline" data-tex="u \sim N(0, 2^2)"></span>, Y bir ondalığa yuvarlandı). Her adımda üstteki panoya bir değer yazılır.</p>
+      <div class="ad-kutu" id="s5_adim">
+        <div class="ad-pano">
+          <div class="ad-hucre var" id="s5p_xbar"><span><span class="katex-inline" data-tex="\bar{X}"></span></span><b>?</b><i>1. adım</i></div>
+          <div class="ad-hucre sap2" id="s5p_sxx"><span><span class="katex-inline" data-tex="\sum x_i^2"></span></span><b>?</b><i>2. adım (siz)</i></div>
+          <div class="ad-hucre sap" id="s5p_k"><span><span class="katex-inline" data-tex="k_i"></span> ağırlıkları</span><b>?</b><i>3. adım</i></div>
+          <div class="ad-hucre ohk" id="s5p_b1"><span><span class="katex-inline" data-tex="\hat{\beta}_1"></span></span><b>?</b><i>4. adım (siz)</i></div>
+        </div>
+        <div class="ad-adimlar" id="s5_adimlar"></div>
+        <div class="ad-icerik" id="s5_icerik"></div>
+        <div class="chart-wrap sm ad-grafik" id="s5k_wrap"><canvas id="s5k"></canvas></div>
+        <div class="chart-wrap sm ad-grafik" id="s5mc_wrap"><canvas id="s5mc"></canvas></div>
+        <div class="chart-wrap sm ad-grafik" id="s5sc_wrap"><canvas id="s5sc"></canvas></div>
+        <div class="ad-sonra" id="s5_sonra"></div>
+        <div class="ad-gez"><button class="btn ghost small" id="s5_geri">‹ Önceki adım</button><span class="ad-sayac" id="s5_sayac">1 / 6</span><button class="btn small" id="s5_ileri">Sonraki adım ›</button></div>
+      </div>
     </div>
   </section>
 
@@ -324,31 +403,37 @@ ul.clean li{margin:.3rem 0}
     <div class="section-header"><span class="num">6</span><h2>OHK: sapma ile varyansın dengesi</h2></div>
     <div class="section-body">
       <div class="sezgi"><div class="ico">⚖️</div><div><b>Sezgi:</b><p>Bazen küçük bir sapmayı kabul edip karşılığında çok daha düşük varyans alabilirsin. Toplam hatayı tek sayıda ölçmek istersen <b>ortalama hata karesi (OHK)</b> kullanılır: hem merkeze uzaklığı hem saçılımı birlikte cezalandırır.</p></div></div>
-      <p>OHK, tahmin edicinin gerçek parametreden farkının karesinin beklenen değeridir ve şu temiz kimliğe ayrışır:</p>
-      <div class="formula center" data-tex="\mathrm{OHK}(\hat{\beta}) = E\big[(\hat{\beta}-\beta)^2\big] = \mathrm{Var}(\hat{\beta}) + \big[\text{Sapma}(\hat{\beta})\big]^2"></div>
-      <p>Aşağıda varyans ve sapmayı ayrı ayrı ayarla; OHK'nın nasıl oluştuğunu ve dağılımın gerçek değere göre nereye oturduğunu izle.</p>
+      <p>OHK, tahmin edicinin gerçek parametreden farkının karesinin beklenen değeridir.</p>
+      <div class="formula center" data-tex="\mathrm{OHK}(\hat{\beta}) = E\big[(\hat{\beta}-\beta)^2\big]"></div>
+      <p>Bu ortalama hatanın iki ayrı kaynaktan geldiğini altı adımda göreceğiz. Önce saçılımı ve kaymayı ayrı ayrı ölçeceğiz, sonra OHK'yı benzetimle doğrudan ölçüp bu ikisiyle karşılaştıracağız, en sonda da formülü kurup iki tahmin ediciyi kıyaslayacağız. Her adımda üstteki panoya bir değer yazılır. Kaydırıcılar her adımda geçerlidir.</p>
       <div class="controls">
         <div class="ctrl"><label>Varyans bileşeni <span class="v" id="s6v_v">0,50</span></label><input type="range" id="s6v" min="0.1" max="2" value="0.5" step="0.05"></div>
         <div class="ctrl"><label>Sapma bileşeni <span class="v" id="s6b_v">0,60</span></label><input type="range" id="s6b" min="0" max="2" value="0.6" step="0.05"></div>
       </div>
-      <div class="grid2">
-        <div class="chart-wrap sm" id="s6dist_wrap"><canvas id="s6dist"></canvas></div>
-        <div class="chart-wrap sm" id="s6bar_wrap"><canvas id="s6bar"></canvas></div>
+      <div class="ad-kutu" id="s6_adim">
+        <div class="ad-pano">
+          <div class="ad-hucre var" id="s6p_var"><span>Varyans</span><b>?</b><i>1. adım</i></div>
+          <div class="ad-hucre sap" id="s6p_sap"><span>Sapma = <span class="katex-inline" data-tex="E(\hat{\beta})-\beta"></span></span><b>?</b><i>2. adım</i></div>
+          <div class="ad-hucre sap2" id="s6p_sap2"><span>Sapma²</span><b>?</b><i>5. adım (siz)</i></div>
+          <div class="ad-hucre ohk" id="s6p_ohk"><span>OHK</span><b>?</b><i>5. adım (siz)</i></div>
+        </div>
+        <div class="ad-adimlar" id="s6_adimlar"></div>
+        <div class="ad-icerik" id="s6_icerik"></div>
+        <div class="chart-wrap sm ad-grafik" id="s6dist_wrap"><canvas id="s6dist"></canvas></div>
+        <div class="chart-wrap sm ad-grafik" id="s6mc_wrap"><canvas id="s6mc"></canvas></div>
+        <div class="chart-wrap sm ad-grafik" id="s6bar_wrap"><canvas id="s6bar"></canvas></div>
+        <div class="ad-sonra" id="s6_sonra"></div>
+        <details class="proof" id="s6_ispat"><summary>İspat: OHK = Varyans + Sapma²</summary><div class="proof-body">
+          <p><span class="katex-inline" data-tex="E(\hat{\beta})"></span>'yı ekleyip çıkararak açalım:</p>
+          <div class="formula center" data-tex="\mathrm{OHK} = E\big[(\hat{\beta}-\beta)^2\big] = E\Big[\big(\hat{\beta}-E(\hat{\beta}) + E(\hat{\beta})-\beta\big)^2\Big]"></div>
+          <p>Kareyi açtığımızda üç terim çıkar:</p>
+          <div class="formula center" data-tex="= \underbrace{E\big[(\hat{\beta}-E(\hat{\beta}))^2\big]}_{\mathrm{Var}(\hat{\beta})} + \underbrace{\big[E(\hat{\beta})-\beta\big]^2}_{\text{Sapma}^2} + 2\,E\big[(\hat{\beta}-E(\hat{\beta}))(E(\hat{\beta})-\beta)\big]"></div>
+          <p>Son çapraz terim sıfırdır, çünkü <span class="katex-inline" data-tex="E(\hat{\beta})-\beta"></span> bir sabittir ve <span class="katex-inline" data-tex="E[\hat{\beta}-E(\hat{\beta})] = 0"></span>:</p>
+          <div class="formula center" data-tex="2\big[E(\hat{\beta})-\beta\big]\,\underbrace{E\big[\hat{\beta}-E(\hat{\beta})\big]}_{=\,0} = 0."></div>
+          <p>Böylece <span class="katex-inline" data-tex="\mathrm{OHK}(\hat{\beta}) = \mathrm{Var}(\hat{\beta}) + [\text{Sapma}(\hat{\beta})]^2"></span> elde edilir. <span class="tag">∎</span></p>
+        </div></details>
+        <div class="ad-gez"><button class="btn ghost small" id="s6_geri">‹ Önceki adım</button><span class="ad-sayac" id="s6_sayac">1 / 6</span><button class="btn small" id="s6_ileri">Sonraki adım ›</button></div>
       </div>
-      <div class="stat-grid">
-        <div class="stat-card"><div class="label">Varyans</div><div class="value" id="s6_var">–</div></div>
-        <div class="stat-card"><div class="label">Sapma²</div><div class="value" id="s6_bias2">–</div></div>
-        <div class="stat-card"><div class="label">OHK toplam</div><div class="value primary" id="s6_mse">–</div></div>
-      </div>
-      <details class="proof"><summary>İspat: OHK = Varyans + Sapma²</summary><div class="proof-body">
-        <p><span class="katex-inline" data-tex="E(\hat{\beta})"></span>'yı ekleyip çıkararak açalım:</p>
-        <div class="formula center" data-tex="\mathrm{OHK} = E\big[(\hat{\beta}-\beta)^2\big] = E\Big[\big(\hat{\beta}-E(\hat{\beta}) + E(\hat{\beta})-\beta\big)^2\Big]"></div>
-        <p>Kareyi açtığımızda üç terim çıkar:</p>
-        <div class="formula center" data-tex="= \underbrace{E\big[(\hat{\beta}-E(\hat{\beta}))^2\big]}_{\mathrm{Var}(\hat{\beta})} + \underbrace{\big[E(\hat{\beta})-\beta\big]^2}_{\text{Sapma}^2} + 2\,E\big[(\hat{\beta}-E(\hat{\beta}))(E(\hat{\beta})-\beta)\big]"></div>
-        <p>Son çapraz terim sıfırdır, çünkü <span class="katex-inline" data-tex="E(\hat{\beta})-\beta"></span> bir sabittir ve <span class="katex-inline" data-tex="E[\hat{\beta}-E(\hat{\beta})] = 0"></span>:</p>
-        <div class="formula center" data-tex="2\big[E(\hat{\beta})-\beta\big]\,\underbrace{E\big[\hat{\beta}-E(\hat{\beta})\big]}_{=\,0} = 0."></div>
-        <p>Böylece <span class="katex-inline" data-tex="\mathrm{OHK}(\hat{\beta}) = \mathrm{Var}(\hat{\beta}) + [\text{Sapma}(\hat{\beta})]^2"></span> elde edilir. <span class="tag">∎</span></p>
-      </div></details>
     </div>
   </section>
 
@@ -436,11 +521,11 @@ ul.clean li{margin:.3rem 0}
     <div class="section-body">
       <p>Özet tablosu: her özellik, tek cümlelik sezgisi ve formal koşuluyla.</p>
       <div class="info-box"><ul class="clean">
-        <li><b>Sapmasızlık:</b> ortalamada doğru — <span class="katex-inline" data-tex="E(\hat{\beta})=\beta"></span>.</li>
-        <li><b>En küçük varyans:</b> en dar dağılım — <span class="katex-inline" data-tex="\mathrm{Var}(\hat{\beta})<\mathrm{Var}(\tilde{\beta})"></span>.</li>
+        <li><b>Sapmasızlık:</b> ortalamada doğru, <span class="katex-inline" data-tex="E(\hat{\beta})=\beta"></span>.</li>
+        <li><b>En küçük varyans:</b> en dar dağılım, <span class="katex-inline" data-tex="\mathrm{Var}(\hat{\beta})<\mathrm{Var}(\tilde{\beta})"></span>.</li>
         <li><b>Etkinlik:</b> sapmasızlar arasında en küçük varyanslı.</li>
-        <li><b>Doğrusallık:</b> gözlemlerin ağırlıklı toplamı — <span class="katex-inline" data-tex="\hat{\beta}=\sum k_i Y_i"></span>.</li>
-        <li><b>OHK:</b> toplam hata — <span class="katex-inline" data-tex="\mathrm{Var}+\text{Sapma}^2"></span>.</li>
+        <li><b>Doğrusallık:</b> gözlemlerin ağırlıklı toplamı, <span class="katex-inline" data-tex="\hat{\beta}=\sum k_i Y_i"></span>.</li>
+        <li><b>OHK:</b> toplam hata, <span class="katex-inline" data-tex="\mathrm{Var}+\text{Sapma}^2"></span>.</li>
         <li><b>Tutarlılık:</b> <span class="katex-inline" data-tex="n\to\infty"></span> iken sapma ve varyans sıfıra gider.</li>
         <li><b>DEST (Gauss-Markov):</b> EKK, doğrusal sapmasızlar arasında en iyisidir.</li>
       </ul></div>
